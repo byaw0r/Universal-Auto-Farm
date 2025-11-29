@@ -318,10 +318,8 @@ end
 
 local function disableCollisions(character)
     if character then
-        originalCollisions = {}
         for _, part in pairs(character:GetDescendants()) do
             if part:IsA("BasePart") then
-                originalCollisions[part] = part.CanCollide
                 part.CanCollide = false
             end
         end
@@ -330,12 +328,11 @@ end
 
 local function enableCollisions(character)
     if character then
-        for part, canCollide in pairs(originalCollisions) do
-            if part and part.Parent then
-                part.CanCollide = canCollide
+        for _, part in pairs(character:GetDescendants()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = true
             end
         end
-        originalCollisions = {}
     end
 end
 
