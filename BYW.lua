@@ -447,7 +447,6 @@ end)
 
 game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
     stopAutoFarm()
-    -- Ждем пока персонаж полностью загрузится
     character:WaitForChild("HumanoidRootPart")
     if isFarming then
         disableCollisions(character)
