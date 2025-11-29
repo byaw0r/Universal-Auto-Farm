@@ -10,7 +10,7 @@ mainBtn.Size = UDim2.new(0, 40, 0, 40)
 mainBtn.Position = UDim2.new(0, 10, 0, 10)
 mainBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 mainBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
-mainBtn.Text = "B"
+mainBtn.Text = "F"
 mainBtn.TextSize = 28
 mainBtn.Font = Enum.Font.GothamBold
 mainBtn.BorderSizePixel = 0
@@ -58,7 +58,7 @@ blockCountLabel.Size = UDim2.new(1, -20, 0, 25)
 blockCountLabel.Position = UDim2.new(0, 10, 0, 45)
 blockCountLabel.BackgroundTransparency = 1
 blockCountLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-blockCountLabel.Text = "Points: 0"
+blockCountLabel.Text = "Blocks: 0"
 blockCountLabel.TextSize = 16
 blockCountLabel.Font = Enum.Font.GothamBold
 blockCountLabel.Parent = mainMenu
@@ -127,7 +127,7 @@ speedTextBox.Size = UDim2.new(0.4, 0, 0, 25)
 speedTextBox.Position = UDim2.new(0.5, 0, 0.25, 0)
 speedTextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 speedTextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
-speedTextBox.Text = "10"
+speedTextBox.Text = "20"
 speedTextBox.TextSize = 14
 speedTextBox.Font = Enum.Font.Gotham
 speedTextBox.PlaceholderText = "Speed"
@@ -228,24 +228,12 @@ game:GetService("UserInputService").InputChanged:Connect(function(input)
     end
 end)
 
-game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        if mainMenu.Visible then
-            wait(0.1)
-            if mainMenu.Visible then
-                mainMenu.Visible = false
-            end
-        end
-    end
-end)
-
 local blocks = {}
 local isFarming = false
 local currentBlockIndex = 1
 local farmConnection
-local moveSpeed = 10
+local moveSpeed = 20
 local isWaiting = false
-local originalCollisions = {}
 
 local function createBlock()
     local character = game.Players.LocalPlayer.Character
