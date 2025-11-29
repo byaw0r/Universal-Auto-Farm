@@ -126,7 +126,7 @@ speedTextBox.Size = UDim2.new(0.4, 0, 0, 25)
 speedTextBox.Position = UDim2.new(0.5, 0, 0.25, 0)
 speedTextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 speedTextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
-speedTextBox.Text = "20"
+speedTextBox.Text = "10"
 speedTextBox.TextSize = 14
 speedTextBox.Font = Enum.Font.Gotham
 speedTextBox.PlaceholderText = "Speed"
@@ -254,7 +254,7 @@ local blocks = {}
 local isFarming = false
 local currentBlockIndex = 1
 local farmConnection
-local moveSpeed = 20
+local moveSpeed = 10
 local isWaiting = false
 local originalCollisions = {}
 
