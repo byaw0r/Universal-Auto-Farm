@@ -29,6 +29,7 @@ mainMenu.AnchorPoint = Vector2.new(0, 0)
 mainMenu.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 mainMenu.BackgroundTransparency = 0.2
 mainMenu.Visible = false
+mainMenu.Active = true
 mainMenu.Parent = screenGui
 
 local menuCorner = Instance.new("UICorner")
@@ -227,23 +228,11 @@ game:GetService("UserInputService").InputChanged:Connect(function(input)
     end
 end)
 
-local function isPointInGuiObject(point, guiObject)
-    local absolutePosition = guiObject.AbsolutePosition
-    local absoluteSize = guiObject.AbsoluteSize
-    
-    return point.X >= absolutePosition.X and
-           point.X <= absolutePosition.X + absoluteSize.X and
-           point.Y >= absolutePosition.Y and
-           point.Y <= absolutePosition.Y + absoluteSize.Y
-end
-
 game:GetService("UserInputService").InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         if mainMenu.Visible then
-            local clickPos = input.Position
-            local clickedInMenu = isPointInGuiObject(clickPos, mainMenu)
-            local clickedInButton = isPointInGuiObject(clickPos, mainBtn)
-            if not clickedInMenu and not clickedInButton then
+            wait(0.1)
+            if mainMenu.Visible then
                 mainMenu.Visible = false
             end
         end
