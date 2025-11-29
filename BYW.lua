@@ -126,7 +126,7 @@ speedTextBox.Size = UDim2.new(0.4, 0, 0, 25)
 speedTextBox.Position = UDim2.new(0.5, 0, 0.25, 0)
 speedTextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 speedTextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
-speedTextBox.Text = "50"
+speedTextBox.Text = "20"
 speedTextBox.TextSize = 14
 speedTextBox.Font = Enum.Font.Gotham
 speedTextBox.PlaceholderText = "Speed"
@@ -241,12 +241,8 @@ game:GetService("UserInputService").InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         if mainMenu.Visible then
             local clickPos = input.Position
-            
-            -- Проверяем, был ли клик вне меню и вне кнопки F
             local clickedInMenu = isPointInGuiObject(clickPos, mainMenu)
             local clickedInButton = isPointInGuiObject(clickPos, mainBtn)
-            
-            -- Если клик был вне меню и вне кнопки F, закрываем меню
             if not clickedInMenu and not clickedInButton then
                 mainMenu.Visible = false
             end
